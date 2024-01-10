@@ -31,18 +31,8 @@ public class StringOps {
     }
 
     public static String camelCase (String string) {
-        String endString = "" ; 
-        char c = string.charAt(1) ; 
-
-        for (int i = 0 ; i < string.length() ; i++){
-            if ( c = 32 )
-                
-            }
-
-        for (int i = 0 ; i < ; i++){
-            if (string.charAt(i)
-        }
-        return endString;
+        //
+        return true;
     }
 
     public static int[] allIndexOf (String string, char chr) {
