@@ -1,21 +1,13 @@
 public class ArrayOps {
     public static void main(String[] args) {
         //findMissingInt Test
-        int[] arr = { 3, 1 , 4 , 2} ; 
+        int[] arr = { 1 , 3 , 4 , 0} ;
         System.out.println(findMissingInt(arr));
 
-        //secondMaxValue Test 
-        int[] arr1 = { 6 , 2 , 4 , 1 , 10} ; 
-        System.out.println(secondMaxValue(arr1));
+        // //secondMaxValue Test 
+        // int[] arr1 = { 6 , 2 , 4 ,2 , 10} ; 
+        // System.out.println(secondMaxValue(arr1));
 
-        //secondMaxValue Test 
-        int[] arr2 = { 2 , 2 , 2 } ; 
-        int[] arr3 = { 2 , 2 } ; 
-        System.out.println(containsTheSameElements(arr2 , arr3));
-
-        //isSorted Test 
-        int[] arr4 = { 1 , 1 , 2 ,4 } ; 
-        System.out.println(isSorted(arr4));
     }
     
     public static int findMissingInt (int [] array) {
@@ -27,33 +19,40 @@ public class ArrayOps {
         }
         
         for ( int i = 0 ; i < newArray.length ; i ++){
+            boolean is_found = false ;
             for ( int j = 0 ; j < array.length ; j++){
             if ( newArray[i] == array[j]){
-                break ;  
-            }
-            else {
-                missing = newArray[i] ; 
+                is_found = true ;  
             }
         }
-    }
+            if (is_found == false){
+                missing = newArray[i] ;
+                break ;
+            }
+        }
         return missing;
     }
 
         
     public static int secondMaxValue(int [] array) {
         int max = 0 ; 
+        int counter = 0 ;
         //check first max
          for (int i = 0 ; i < array.length ; i++) {
             if (array[i] > max ){
-            max = array[i] ;  
+            max = array[i] ; 
+            counter = i ; 
          }
         }
          
         //create new array without first max value 
-        int [] newArray = new int[ array.length - 1 ] ; 
-        for ( int i = 0 ; i < array.length-1 ; i++){
-            if ( array [i] != max){
+        int [] newArray = new int[ array.length ] ; 
+        for ( int i = 0 ; i < array.length ; i++){
+            if ( i != counter ){
             newArray [i] = array [i] ; 
+            }
+            else {
+                 newArray [i] = 0 ;
             }
         }
 
