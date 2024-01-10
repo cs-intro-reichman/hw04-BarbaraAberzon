@@ -1,7 +1,7 @@
 public class ArrayOps {
     public static void main(String[] args) {
         //findMissingInt Test
-        int[] arr = { 1 , 3 , 4 , 0} ;
+        int[] arr = { 0 } ;
         System.out.println(findMissingInt(arr));
 
         // //secondMaxValue Test 
@@ -11,7 +11,7 @@ public class ArrayOps {
     }
     
     public static int findMissingInt (int [] array) {
-        int missing = 0 ;
+        int missing = 1 ;
         int [] newArray = new int[ array.length +1 ] ; // create new array for compare
 
         for ( int i = 0 ; i < array.length ; i++){
