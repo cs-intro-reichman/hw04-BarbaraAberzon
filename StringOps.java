@@ -3,10 +3,8 @@ import java.util.Arrays;
 public class StringOps {
     public static void main(String[] args) {
         //tseter 
-        String word = "MMMM" ;
-        char letter = 'M';
-        System.out.println(Arrays.toString(allIndexOf(word, letter)));
-
+        String word = "HELLO world" ;
+        System.out.println(camelCase(word));
 
     }
 
@@ -31,8 +29,40 @@ public class StringOps {
     }
 
     public static String camelCase (String string) {
-        //
-        return true;
+        String modString = ""; 
+        String finalString = "";
+        char c ; 
+
+        for (int i = 0 ; i < string.length() ; i ++){
+            c = string.charAt(i);
+            if (c >= 'A' && c <= 'Z') {
+                c = (char)(c+32);
+            }
+          modString = modString + c ;
+        }
+
+        while (modString.charAt(0) == 32 || string.charAt(modString.length()-1) == 32 ) {
+            if (modString.charAt(0)== 32) {
+                modString = modString.substring(1) ; 
+            }
+            if (modString.charAt(modString.length() -1 ) == 32 ){
+                modString = modString.substring(0, modString.length() -1);
+            }
+        }
+
+        for (int i = 0 ; i < modString.length() ; i ++ ){
+            if (modString.charAt(i) == 32){
+                if (modString.charAt(i+1) >= 'a' && modString.charAt(i+1) <= 'z'){
+                    finalString = finalString + (char)(modString.charAt(i+1) -32) ;
+                    i ++ ; 
+                }
+            }
+            else if (modString.charAt(i) >= 'a' && modString.charAt(i) <= 'z'){
+                finalString = finalString +modString.charAt(i); 
+            }
+        }
+
+        return finalString;
     }
 
     public static int[] allIndexOf (String string, char chr) {
